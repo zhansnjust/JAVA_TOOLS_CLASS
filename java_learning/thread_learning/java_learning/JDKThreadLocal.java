@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class JDKThreadLocal {
 	public static void main(String[] args) {
-		for(int i=1;i<3;i++)
+		for(int i=1;i<5;i++)
 		{
 			new Thread(new Runnable() {
 				public void run() {
@@ -27,7 +27,7 @@ public class JDKThreadLocal {
 	static class B {
 		public void get() {
 			MyThreadScopeData data=MyThreadScopeData.getIntances();
-			System.out.println("B from"+Thread.currentThread().getName()+"getData"+data.getName()+","+data.getAge());
+			System.out.println("B from "+Thread.currentThread().getName()+" getData "+data.getName()+","+data.getAge());
 		}
 	}
 }
