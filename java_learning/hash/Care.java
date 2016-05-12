@@ -15,7 +15,6 @@ public class Care<S> {
 	private TreeMap<Long, S> nodes;
 	private List<S> shards;
 	private final int NODE_NUM = 100;
-
 	public Care(List<S> shards) {
 		super();
 		this.shards = shards;
