@@ -7,6 +7,7 @@ import java.util.concurrent.Semaphore;
 public class SemaphoreTest {
 	public static void main(String[] args) {
 		ExecutorService service=Executors.newCachedThreadPool();
+		//当semaphore(1)时，可以作为同步工具
 		final  Semaphore sp=new Semaphore(3);
 		for(int i=0;i<10;i++)
 		{

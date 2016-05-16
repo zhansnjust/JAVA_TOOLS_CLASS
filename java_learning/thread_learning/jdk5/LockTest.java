@@ -1,5 +1,6 @@
 package jdk5;
 
+import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -16,7 +17,7 @@ public class LockTest {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						o.print("zhangsan");
+						o.print("111111111111111111111");
 					}
 				}
 			}).start();
@@ -29,7 +30,7 @@ public class LockTest {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						o.print("lisi");
+						o.print("222222222222222");
 					}
 				};
 			}.start();
@@ -40,7 +41,6 @@ public class LockTest {
 	static class Outer {
 		// 如下方法会出现线程安全问题， 解决方法。 用synchronized修饰方法。 或者使用lock
 		Lock lock = new ReentrantLock();
-
 		void print(String str) {
 			int len = str.length();
 			lock.lock();
