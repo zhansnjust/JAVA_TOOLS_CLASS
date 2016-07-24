@@ -1,7 +1,14 @@
 package simpleInstance;
 
-public class Simple {
-	private static Simple instance;
+import java.io.ObjectStreamException;
+import java.io.Serializable;
+
+public class Simple implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private volatile static Simple instance;
 
 	private Simple() {
 
@@ -23,13 +30,17 @@ public class Simple {
 		return instance;
 	}
 
-	// 内部类的方式
+	// 内部类的方式. 有懒加载性能。 是一个很好的实现方式
 	private static class MyObjectHander {
 		private static Simple ins = new Simple();
 	}
 
 	public static Simple getInstance1() {
 		return MyObjectHander.ins;
+	}
+
+	private Object readResolve() throws ObjectStreamException {
+		return instance;
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +58,6 @@ public class Simple {
 				System.out.println(Simple.getInstance1());
 			}
 		}.start();
-		;
 		new Thread() {
 			@Override
 			public void run() {
@@ -55,6 +65,5 @@ public class Simple {
 				System.out.println(Simple.getInstance1());
 			}
 		}.start();
-		;
 	}
 }
