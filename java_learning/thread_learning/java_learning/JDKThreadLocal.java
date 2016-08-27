@@ -9,7 +9,7 @@ public class JDKThreadLocal {
 			new Thread(new Runnable() {
 				public void run() {
 					 int data=new Random().nextInt();
-					 MyThreadScopeData.getIntances().setName(data+"-");
+					 MyThreadScopeData.getIntances().setName(data+"->");
 					 MyThreadScopeData.getIntances().setAge(data);
 					 new A().get();
 					 new B().get();

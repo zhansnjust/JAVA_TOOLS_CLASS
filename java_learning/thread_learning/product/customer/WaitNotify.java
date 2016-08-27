@@ -49,8 +49,8 @@ public class WaitNotify {
 	class Customer extends Thread {
 		@Override
 		public void run() {
-			while (true) {
 				synchronized (queue) {
+					while (true) {
 					try {
 						while (queue.size() == 0) {
 							System.out.println("storeHouse is empty , please wait");
